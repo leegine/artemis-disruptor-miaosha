@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2000-2003 Fitech Laboratories, Inc. All Rights Reserved.
+
+ This software is provided "AS IS," without a warranty of any kind. ALL
+ EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+ IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+ NON-INFRINGEMENT, ARE HEREBY EXCLUDED. FITECH LABORATORIES AND ITS LICENSORS
+ SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING,
+ MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL
+ FITECH LABORATORIES OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT
+ OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+ DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT
+ OF THE USE OF OR INABILITY TO USE SOFTWARE, EVEN IF FITECH LABORATORIES HAS
+ BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+ This software is not designed or intended for use in on-line control of
+ aircraft, air traffic, aircraft navigation or aircraft communications; or in
+ the design, construction, operation or maintenance of any nuclear
+ facility. Licensee represents and warrants that it will not use or
+ redistribute the Software for such purposes.
+
+ author: 2000-2006 Copyright (C) Fitech Laboratories, Inc. All Rights Reserved. ver. 2.3.2 'Amiga' (build 1599).
+
+ xTier kernel localization (l10n) service XML. This service is used
+ internally by xTier kernel and system services to localized the internal
+ output. 
+ 
+ Localization data for "workflow" service.
+ 
+ Users of xTier should use i18n service provided by xTier.
+ 
+ See:
+ - ISO-639 http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt
+ - ISO-3166(A2) http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
+ for possible values for language and country codes.
+
+ $Project$
+ $Workfile$
+ $Date$
+ $Revision$
+-->
+
+<!--
+    *******************************************************************************
+    *                         DO NOT MODIFY THIS FILE.                            *
+    *                         ========================                            *
+    * ANY MODIFICATION TO THIS FILE MAY PREVENT XTIER FROM STARTING, RESULT       *
+    * IN INPROPER BEHAVIOR OR CORRUPTED DATA. THIS FILE IS FOR INTERNAL USE ONLY. *
+    *******************************************************************************
+-->
+<!--
+    L10n XML file consists of properties.
+    *************************************
+    
+    .NET implementation makes the best effort to convert Java formatting rules to
+    format acceptable by .NET String.format(...) method. 
+    
+    ****************************************************************************************
+    * NOTE THAT THIS DOES NOT GUARANTY THAT JAVA AND .NET FORMATTINGS WILL PRODUCE THE     *
+    * SAME RESULT. L10N SERVICE ONLY MAKES AN EFFORT TO CONVERT THE FORMATTING TO THE BEST *
+    * MATCH FROM THE DIFFERENT PLATFORM.                                                   *
+    ****************************************************************************************
+        
+    The formatting works in the following way:
+    
+    N - index of the argument
+    other - any string
+        
+        JAVA                        Auto .NET conversion
+        ====                        ====================
+        
+        {N}                         {N}
+        
+        {N, number}                 {N:G}
+        {N, number, integer}        {N:D}
+        {N, number, percent}        {N:P}
+        {N, number, currency}       {N:C}
+        {N, number, other}          {N:other}
+        
+        {N, date}                   {N:D}
+        {N, date, short}            {N:d}
+        {N, date, medium}           {N:d}
+        {N, date, long}             {N:D}
+        {N, date, full}             {N:G}
+        {N, date, other}            {N:other}
+        
+        {N, time}                   {N:T}
+        {N, time, short}            {N,t}
+        {N, time, medium}           {N,t}
+        {N, time, long}             {N,T}
+        {N, time, full}             {N,g}
+        {N, time, other}            {N, other}
+
+    Naming conventions.
+    ===================
+    All L10n properties must be named according to the following BNF grammar:
+    name:   sub-name
+            | name '.' sub-name
+            ;
+            
+    sub-name: [A-Z0-9]
+            ;
+    
+    Notice using '.' for separating sub names. Common sub names should appear first in the name 
+    followed by more specific sub names. For example, "CORE.CACHE.MISS.ERR1" would mean cache-miss 
+    error message in core subsystem.    
+-->
+
+<!DOCTYPE l10n SYSTEM "dtd/xtier_l10n.dtd">
+
+<l10n>
+    <!--
+        'workflow' service resources.
+    -->        
+    <prop name="SRVC.WF.TXT1">
+        <locale country="US" lang="en">Workflow exception: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.TXT2">
+        <locale country="US" lang="en">Workflow parse validation exception: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.TXT3">
+        <locale country="US" lang="en">Execution set result [group={0}, name={1}, exit-code={2}, is-successful={3}]</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.TXT5">
+        <locale country="US" lang="en">Workflow execution set [group={0}, name={1}, average-execution-time={2,number,#}, last-execution-time={3,date,short} {3,time,short}, execution-count={4,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.TXT6">
+        <locale country="US" lang="en">Workflow rule [group={0}, name={1}, average-execution-time={2,number,#}, last-execution-time={3,date,short} {3,time,short}, execution-count={4,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.TXT7">
+        <locale country="US" lang="en">Workflow run validation exception: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.WRN1">
+        <locale country="US" lang="en">Found curcular configuration include path: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR1">
+        <locale country="US" lang="en">Error while parsing workflow XML configuration.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR2">
+        <locale country="US" lang="en">Target workflow configuration region was not found: {0}</locale>
+    </prop>            
+
+    <prop name="SRVC.WF.ERR3">
+        <locale country="US" lang="en">Failed to create IoC object.</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.ERR4">
+        <locale country="US" lang="en">Duplicate region definition: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.ERR5">
+        <locale country="US" lang="en">Duplicate rule definition [group={0}, rule-name={1}]</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.ERR6">
+        <locale country="US" lang="en">Duplicate condition code: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.ERR7">
+        <locale country="US" lang="en">Duplicate execution set definition [group={0}, rule name={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR8">
+        <locale country="US" lang="en">Duplicate output code: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR9">
+        <locale country="US" lang="en">Duplicate parameter name: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.ERR10">
+        <locale country="US" lang="en">Duplicate event [group={0}, exec-set={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR11">
+        <locale country="US" lang="en">Must specify either rule or exec-set name.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR12">
+        <locale country="US" lang="en">Duplicate group definition: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR13">
+        <locale country="US" lang="en">Execution set not found [group={0}, name={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.ERR14">
+        <locale country="US" lang="en">I/O error while parsing workflow XML file: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR1">
+        <locale country="US" lang="en">Parse validation errors occured.</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.PARSEVAL.ERR2">
+        <locale country="US" lang="en">Invalid entry point into execution set.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR3">
+        <locale country="US" lang="en">Invalid rule or execution set referenced from event.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR4">
+        <locale country="US" lang="en">Invalid event referenced from action.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR5">
+        <locale country="US" lang="en">Execution set does not have a terminal state [group={0}, name={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR6">
+        <locale country="US" lang="en">Unhandled execution set exit code: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR7">
+        <locale country="US" lang="en">Unhandled rule return code: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.PARSEVAL.ERR8">
+        <locale country="US" lang="en">WORKFLOW PARSE VALIDATION ERRORS FOUND. CHECK ERROR MESSAGES BELLOW.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR9">
+        <locale country="US" lang="en">FOUND {0} PARSE VALIDATION ERROR(S):</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.ERR10">
+        <locale country="US" lang="en">Parse validation error(s) occurred, check logged error messages.</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.PARSEVAL.WRN1">
+        <locale country="US" lang="en">Encountered non-existent execution set exit code: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.PARSEVAL.WRN2">
+        <locale country="US" lang="en">Encountered non-existent rule return code: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.PARSEVAL.WRN3">
+        <locale country="US" lang="en">Encountered cycle in execution path [group={0}, exec-set={1}]</locale>
+    </prop>
+    
+    <prop name="SRVC.WF.PARSEVAL.WRN4">
+        <locale country="US" lang="en">Found unreachable event [group={0}, exec-set={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.PARSEVAL.WRN5">
+        <locale country="US" lang="en">FOUND {0} WORKFLOW PARSE VALIDATION WARNING(S):</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR1">
+        <locale country="US" lang="en">Encountered undeclared input parameter: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR2">
+        <locale country="US" lang="en">Parameter declared as non-optional input but never accessed: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR3">
+        <locale country="US" lang="en">Rule cannot have ''null'' return code [group={0}, rule={1}, body={2}]</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR4">
+        <locale country="US" lang="en">Encountered undeclared return code: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR5">
+        <locale country="US" lang="en">Encountered undeclared output parameter: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR6">
+        <locale country="US" lang="en">Parameter declared as non-optional output but was not added to session: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR7">
+        <locale country="US" lang="en">WORKFLOW RUN VALIDATION ERRORS FOUND. CHECK ERROR MESSAGES BELLOW.</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR8">
+        <locale country="US" lang="en">FOUND {0} RUN VALIDATION ERROR(S):</locale>
+    </prop>
+
+    <prop name="SRVC.WF.RUNVAL.ERR9">
+        <locale country="US" lang="en">Errors encountered for workflow run-time-validation, check logged error messages.</locale>
+    </prop>    
+</l10n>

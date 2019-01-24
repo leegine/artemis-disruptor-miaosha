@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2000-2003 Fitech Laboratories, Inc. All Rights Reserved.
+
+ This software is provided "AS IS," without a warranty of any kind. ALL
+ EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+ IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+ NON-INFRINGEMENT, ARE HEREBY EXCLUDED. FITECH LABORATORIES AND ITS LICENSORS
+ SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING,
+ MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL
+ FITECH LABORATORIES OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT
+ OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+ DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT
+ OF THE USE OF OR INABILITY TO USE SOFTWARE, EVEN IF FITECH LABORATORIES HAS
+ BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+ This software is not designed or intended for use in on-line control of
+ aircraft, air traffic, aircraft navigation or aircraft communications; or in
+ the design, construction, operation or maintenance of any nuclear
+ facility. Licensee represents and warrants that it will not use or
+ redistribute the Software for such purposes.
+
+ author: 2000-2006 Copyright (C) Fitech Laboratories, Inc. All Rights Reserved. ver. 2.3.2 'Amiga' (build 1599).
+
+ xTier kernel localization (l10n) service XML. This service is used
+ internally by xTier kernel and system services to localized the internal
+ output. 
+ 
+ Localization data for "i18n" service.
+ 
+ Users of xTier should use i18n service provided by xTier.
+ 
+ See:
+ - ISO-639 http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt
+ - ISO-3166(A2) http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
+ for possible values for language and country codes.
+
+ $Project$
+ $Workfile$
+ $Date$
+ $Revision$
+-->
+
+<!--
+    *******************************************************************************
+    *                         DO NOT MODIFY THIS FILE.                            *
+    *                         ========================                            *
+    * ANY MODIFICATION TO THIS FILE MAY PREVENT XTIER FROM STARTING, RESULT       *
+    * IN INPROPER BEHAVIOR OR CORRUPTED DATA. THIS FILE IS FOR INTERNAL USE ONLY. *
+    *******************************************************************************
+-->
+<!--
+    L10n XML file consists of properties.
+    *************************************
+    
+    .NET implementation makes the best effort to convert Java formatting rules to
+    format acceptable by .NET String.format(...) method. 
+    
+    ****************************************************************************************
+    * NOTE THAT THIS DOES NOT GUARANTY THAT JAVA AND .NET FORMATTINGS WILL PRODUCE THE     *
+    * SAME RESULT. L10N SERVICE ONLY MAKES AN EFFORT TO CONVERT THE FORMATTING TO THE BEST *
+    * MATCH FROM THE DIFFERENT PLATFORM.                                                   *
+    ****************************************************************************************
+        
+    The formatting works in the following way:
+    
+    N - index of the argument
+    other - any string
+        
+        JAVA                        Auto .NET conversion
+        ====                        ====================
+        
+        {N}                         {N}
+        
+        {N, number}                 {N:G}
+        {N, number, integer}        {N:D}
+        {N, number, percent}        {N:P}
+        {N, number, currency}       {N:C}
+        {N, number, other}          {N:other}
+        
+        {N, date}                   {N:D}
+        {N, date, short}            {N:d}
+        {N, date, medium}           {N:d}
+        {N, date, long}             {N:D}
+        {N, date, full}             {N:G}
+        {N, date, other}            {N:other}
+        
+        {N, time}                   {N:T}
+        {N, time, short}            {N,t}
+        {N, time, medium}           {N,t}
+        {N, time, long}             {N,T}
+        {N, time, full}             {N,g}
+        {N, time, other}            {N, other}
+
+    Naming conventions.
+    ===================
+    All L10n properties must be named according to the following BNF grammar:
+    name:   sub-name
+            | name '.' sub-name
+            ;
+            
+    sub-name: [A-Z0-9]
+            ;
+    
+    Notice using '.' for separating sub names. Common sub names should appear first in the name 
+    followed by more specific sub names. For example, "CORE.CACHE.MISS.ERR1" would mean cache-miss 
+    error message in core subsystem.    
+-->
+
+<!DOCTYPE l10n SYSTEM "dtd/xtier_l10n.dtd">
+
+<l10n>
+    <!--
+        'i18n' service resources.
+    -->
+    <prop name="SRVC.I18N.TRC1">
+        <locale country="US" lang="en">I18n reloaded from: {0}</locale>
+    </prop>        
+    
+    <prop name="SRVC.I18N.TXT1">
+        <locale country="US" lang="en">Missing i18n resource error: {0}</locale>
+    </prop>        
+
+    <prop name="SRVC.I18N.TXT2">
+        <locale country="US" lang="en">I18n service error: {0}</locale>
+    </prop>        
+    
+    <prop name="SRVC.I18N.TXT3">
+        <locale country="US" lang="en">I18n group: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.I18N.TXT4">
+        <locale country="US" lang="en">I18n property: {0}</locale>
+    </prop>    
+    
+    <prop name="SRVC.I18N.TXT5">
+        <locale country="US" lang="en">I18n region: {0}</locale>
+    </prop>    
+    
+    <prop name="SRVC.I18N.TXT6">
+        <locale country="US" lang="en">I18n locale [lang={0}, country={1}, skin={2}, value={3}]</locale>
+    </prop>        
+    
+    <prop name="SRVC.I18N.ERR1">
+        <locale country="US" lang="en">Failed to reload I18n XML configuration.</locale>
+    </prop>    
+    
+    <prop name="SRVC.I18N.ERR2">
+        <locale country="US" lang="en">Double i18n XML region found: {0}</locale>
+    </prop>        
+    
+    <prop name="SRVC.I18N.ERR5">
+        <locale country="US" lang="en">Double i18n group found [region={0}, group={1}]</locale>
+    </prop>            
+    
+    <prop name="SRVC.I18N.ERR6">
+        <locale country="US" lang="en">Double i18n property found [region={0}, group={1}, prop={2}]</locale>
+    </prop>        
+    
+    <prop name="SRVC.I18N.ERR7">
+        <locale country="US" lang="en">Double "for-all" locale found [region={0}, group={1}, prop={2}]</locale>
+    </prop>    
+    
+    <prop name="SRVC.I18N.ERR8">
+        <locale country="US" lang="en">Double i18n locale found [region={0}, group={1}, prop={2}, locale={3}]</locale>
+    </prop>        
+    
+    <prop name="SRVC.I18N.ERR9">
+        <locale country="US" lang="en">I18n property already contains "for-all" locale [region={0}, group={1}, prop={2}]</locale>
+    </prop>                
+    
+    <prop name="SRVC.I18N.ERR10">
+        <locale country="US" lang="en">Failed to load i18n XML configuration: {0}</locale>
+    </prop>            
+    
+    <prop name="SRVC.I18N.ERR11">
+        <locale country="US" lang="en">Target i18n XML region is not found: {0}</locale>                
+    </prop>        
+    
+    <prop name="SRVC.I18N.ERR12">
+        <locale country="US" lang="en">I18n property not found [group={0}, prop={1}, locale={2}, skin={3}]</locale>                
+    </prop>    
+    
+    <prop name="SRVC.I18N.ERR13">
+        <locale country="US" lang="en">I18n property not found [group={0}, prop={1}]</locale>                
+    </prop>                
+
+    <prop name="SRVC.I18N.ERR14">
+        <locale country="US" lang="en">I18n group not found: {0}</locale>                
+    </prop>                
+
+    <prop name="SRVC.I18N.ERR15">
+        <locale country="US" lang="en">Failed to load initial i18n XML configuration: {0}</locale>                
+    </prop>                
+
+    <prop name="SRVC.I18N.ERR16">
+        <locale country="US" lang="en">I/O error reading i18n XML configuration: {0}</locale>                
+    </prop>                
+
+    <prop name="SRVC.I18N.ERR17">
+        <locale country="US" lang="en">Invalid variable substitution in i18n XML configuration: {0}</locale>                
+    </prop>                
+
+    <prop name="SRVC.I18N.ERR18">
+        <locale country="US" lang="en">Recursive variable substitution detected in i18n XML configuration [var={0}, prop={1}, locale={2}]</locale>                
+    </prop>    
+    
+    <prop name="SRVC.I18N.ERR19">
+        <locale country="US" lang="en">Cannot find property or proper substitution locale in i18n XML configuration [var={0}, prop={1}, locale={2}]</locale>                
+    </prop>    
+
+    <prop name="SRVC.I18N.ERR20">
+        <locale country="US" lang="en">Reload timeout is invalid [region={0}, msec={1}]</locale>                
+    </prop>    
+
+    <prop name="SRVC.I18N.ERR21">
+        <locale country="US" lang="en">Unable to create IoC-based value [group={0}, prop={1}, locale={2}, skin={3}]</locale>
+    </prop>            
+
+    <prop name="SRVC.I18N.ERR22">
+        <locale country="US" lang="en">Property value is IoC-based, formatting is illegal [group={0}, prop={1}, locale={2}, skin={3}]</locale>                
+    </prop>    
+
+    <prop name="SRVC.I18N.ERR23">
+        <locale country="US" lang="en">Attempt to retrieve IoC-based value for non-IoC property [group={0}, prop={1}, locale={2}, skin={3}]</locale>                
+    </prop>    
+
+    <prop name="SRVC.I18N.ERR24">
+        <locale country="US" lang="en">Cannot substitute IoC-based value [var={0}, prop={1}, locale={2},  skin={3}]</locale>                
+    </prop>    
+
+    <prop name="SRVC.I18N.IMPL.WRN1">
+        <locale country="US" lang="en">Recursive inclusion detected. File will be skipped: {0}</locale>
+    </prop>            
+</l10n>

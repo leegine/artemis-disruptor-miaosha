@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2000-2003 Fitech Laboratories, Inc. All Rights Reserved.
+
+ This software is provided "AS IS," without a warranty of any kind. ALL
+ EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+ IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+ NON-INFRINGEMENT, ARE HEREBY EXCLUDED. FITECH LABORATORIES AND ITS LICENSORS
+ SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING,
+ MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL
+ FITECH LABORATORIES OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT
+ OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+ DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT
+ OF THE USE OF OR INABILITY TO USE SOFTWARE, EVEN IF FITECH LABORATORIES HAS
+ BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+ This software is not designed or intended for use in on-line control of
+ aircraft, air traffic, aircraft navigation or aircraft communications; or in
+ the design, construction, operation or maintenance of any nuclear
+ facility. Licensee represents and warrants that it will not use or
+ redistribute the Software for such purposes.
+
+ author: 2000-2006 Copyright (C) Fitech Laboratories, Inc. All Rights Reserved. ver. 2.3.2 'Amiga' (build 1599).
+
+ xTier kernel localization (l10n) service XML. This service is used
+ internally by xTier kernel and system services to localized the internal
+ output. 
+ 
+ Localization data for "log" service.
+ 
+ Users of xTier should use i18n service provided by xTier.
+ 
+ See:
+ - ISO-639 http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt
+ - ISO-3166(A2) http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
+ for possible values for language and country codes.
+
+ $Project:xtier-2.0$
+ $Workfile:xtier_l10n_log.xml$
+ $Date:10/14/2004 4:01:59 PM$
+ $Revision:8$
+-->
+
+<!--
+    *******************************************************************************
+    *                         DO NOT MODIFY THIS FILE.                            *
+    *                         ========================                            *
+    * ANY MODIFICATION TO THIS FILE MAY PREVENT XTIER FROM STARTING, RESULT       *
+    * IN INPROPER BEHAVIOR OR CORRUPTED DATA. THIS FILE IS FOR INTERNAL USE ONLY. *
+    *******************************************************************************
+-->
+<!--
+    L10n XML file consists of properties.
+    *************************************
+    
+    .NET implementation makes the best effort to convert Java formatting rules to
+    format acceptable by .NET String.format(...) method. 
+    
+    ****************************************************************************************
+    * NOTE THAT THIS DOES NOT GUARANTY THAT JAVA AND .NET FORMATTINGS WILL PRODUCE THE     *
+    * SAME RESULT. L10N SERVICE ONLY MAKES AN EFFORT TO CONVERT THE FORMATTING TO THE BEST *
+    * MATCH FROM THE DIFFERENT PLATFORM.                                                   *
+    ****************************************************************************************
+        
+    The formatting works in the following way:
+    
+    N - index of the argument
+    other - any string
+        
+        JAVA                        Auto .NET conversion
+        ====                        ====================
+        
+        {N}                         {N}
+        
+        {N, number}                 {N:G}
+        {N, number, integer}        {N:D}
+        {N, number, percent}        {N:P}
+        {N, number, currency}       {N:C}
+        {N, number, other}          {N:other}
+        
+        {N, date}                   {N:D}
+        {N, date, short}            {N:d}
+        {N, date, medium}           {N:d}
+        {N, date, long}             {N:D}
+        {N, date, full}             {N:G}
+        {N, date, other}            {N:other}
+        
+        {N, time}                   {N:T}
+        {N, time, short}            {N,t}
+        {N, time, medium}           {N,t}
+        {N, time, long}             {N,T}
+        {N, time, full}             {N,g}
+        {N, time, other}            {N, other}
+
+    Naming conventions.
+    ===================
+    All L10n properties must be named according to the following BNF grammar:
+    name:   sub-name
+            | name '.' sub-name
+            ;
+            
+    sub-name: [A-Z0-9]
+            ;
+    
+    Notice using '.' for separating sub names. Common sub names should appear first in the name 
+    followed by more specific sub names. For example, "CORE.CACHE.MISS.ERR1" would mean cache-miss 
+    error message in core subsystem.    
+-->
+
+<!DOCTYPE l10n SYSTEM "dtd/xtier_l10n.dtd">
+
+<l10n>
+    <!--
+        'log' service resources.
+    -->
+    <prop name="SRVC.LOG.DFL.HND">
+        <locale country="US" lang="en">Log sink failed to log [sink={0}, record={1}, exception={2}]</locale>
+    </prop>    
+    
+    <prop name="SRVC.LOG.DFL.HND.TXT1">
+        <locale country="US" lang="en">Default log error handler.</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.CNSL.FMT.TXT1">
+        <locale country="US" lang="en">Console log formatter.</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.XML.FMT.TXT1">
+        <locale country="US" lang="en">XML log formatter.</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.HTML.FMT.TXT1">
+        <locale country="US" lang="en">HTML log formatter.</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.CSTM.FMT.TXT1">
+        <locale country="US" lang="en">Custom log formatter [template={0}].</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.RECORD.TXT1">
+        <locale country="US" lang="en">Log record [timestamp={0, date}, {0, time}, seq-num={1,number,#}, thread={2}, category={3}, msg={4}, level={5}, time-elapsed={6,number,#}, class={7}, file={8}, method={9}, line-number={10,number,#}, thrown={11}]</locale>
+    </prop>    
+    
+    <prop name="SRVC.LOG.LEVEL.ERR1">
+        <locale country="US" lang="en">Invalid log level: {0}</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.ERR3">
+        <locale country="US" lang="en">Error while parsing log XML configuration.</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.ERR4">
+        <locale country="US" lang="en">Target log region was not found: {0}</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.ERR14">
+        <locale country="US" lang="en">Invalid log level value: {0}</locale>
+    </prop>            
+    
+    <prop name="SRVC.LOG.IMPL.ERR15">
+        <locale country="US" lang="en">Double log region definition: {0}</locale>
+    </prop>            
+    
+    <prop name="SRVC.LOG.IMPL.ERR16">
+        <locale country="US" lang="en">I/O error parsing log XML configuration: {0}</locale>
+    </prop>            
+    
+    <prop name="SRVC.LOG.IMPL.ERR18">
+        <locale country="US" lang="en">Invalid regexp for the log category: {0}</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.ERR19">
+        <locale country="US" lang="en">Failed to create log sink component.</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.ERR20">
+        <locale country="US" lang="en">Failed to register log sink MBean.</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.ERR22">
+        <locale country="US" lang="en">Log service does not define any log sinks. No log output will be produced.</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.IMPL.WRN1">
+        <locale country="US" lang="en">Recursive inclusion detected. File will be skipped: {0}</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.CSINK.TXT1">
+        <locale country="US" lang="en">Console log sink [name={0}, formatter={1}, filter={2}, error-handler={3}].</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.FSINK.ERR2">
+        <locale country="US" lang="en">Invalid file name property for log file sink: {0}.</locale>
+    </prop>            
+    
+    <prop name="SRVC.LOG.FSINK.ERR5">
+        <locale country="US" lang="en">Cannot remove log file while cleaning for log file sink: {0}.</locale>
+    </prop>        
+    
+    <prop name="SRVC.LOG.FSINK.ERR6">
+        <locale country="US" lang="en">Invalid file name found while attempting to append log in file sink: {0}.</locale>
+    </prop>        
+
+    <prop name="SRVC.LOG.FSINK.ERR7">
+        <locale country="US" lang="en">Cannot create destination folder for log file sink: {0}. On UNIX make sure you have sufficient privileges to create this file.</locale>
+    </prop>        
+
+    <prop name="SRVC.LOG.FSINK.ERR8">
+        <locale country="US" lang="en">Found unexpected existing log file: {0}</locale>
+    </prop>        
+
+    <prop name="SRVC.LOG.FSINK.ERR9">
+        <locale country="US" lang="en">Failed to register file sink MBean.</locale>
+    </prop>          
+
+    <prop name="SRVC.LOG.FSINK.ERR11">
+        <locale country="US" lang="en">I/O problem while appending log.</locale>
+    </prop>        
+    
+    <prop name="SRVC.LOG.FSINK.TXT1">
+        <locale country="US" lang="en">File log sink [name={0}, formatter={1}, filter={2}, error-handler={3}, folder={4}, file={5}, max-size={6,number,#}].</locale>
+    </prop>    
+    
+    <prop name="SRVC.LOG.FSINK.TXT2">
+        <locale country="US" lang="en">No log files found at: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.FSINK.TXT3">
+        <locale country="US" lang="en">File sink error: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.LOG.MKSINK.TXT1">
+        <locale country="US" lang="en">Micro kernel log sink [name={0}, formatter={1}, filter={2}, error-handler={3}].</locale>
+    </prop>                
+    
+    <prop name="SRVC.LOG.LSINK.TXT1">
+        <locale country="US" lang="en">Log4j log sink [name={0}, filter={1}, error-handler={2}].</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.JSINK.TXT1">
+        <locale country="US" lang="en">Java logging log sink [name={0}, filter={1}, error-handler={2}].</locale>
+    </prop>                   
+    
+    <prop name="SRVC.LOG.CSTM.FMT.ERR1">
+        <locale country="US" lang="en">Invalid custom formatter syntax in: {0}</locale>
+    </prop>            
+
+    <prop name="SRVC.LOG.CSTM.FMT.ERR2">
+        <locale country="US" lang="en">Invalid custom formatter ''-cat'' field: {0}</locale>
+    </prop>            
+    
+    <prop name="SRVC.LOG.CSTM.FMT.ERR3">
+        <locale country="US" lang="en">Category number (precision) must be > 0 in ''-cat'' field: {0}</locale>
+    </prop>                
+
+    <prop name="SRVC.LOG.CSTM.FMT.ERR4">
+        <locale country="US" lang="en">Invalid custom formatter ''-len'' field: {0}</locale>
+    </prop>                
+
+    <prop name="SRVC.LOG.CSTM.FMT.ERR5">
+        <locale country="US" lang="en">Unknown custom formatter field: {0}</locale>
+    </prop>                
+
+    <prop name="SRVC.LOG.CSTM.FMT.ERR6">
+        <locale country="US" lang="en">Unclosed ''}'' in custom formatter template: {0}</locale>
+    </prop>                
+    
+    <prop name="SRVC.LOG.ELSINK.TXT1">
+        <locale country="US" lang="en">Event log sink [name={0}, formatter={1}, filter={2}, error-handler={3}].</locale>
+    </prop>            
+</l10n>

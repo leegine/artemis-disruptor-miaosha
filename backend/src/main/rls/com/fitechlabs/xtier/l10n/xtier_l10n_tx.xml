@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2000-2003 Fitech Laboratories, Inc. All Rights Reserved.
+
+ This software is provided "AS IS," without a warranty of any kind. ALL
+ EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+ IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+ NON-INFRINGEMENT, ARE HEREBY EXCLUDED. FITECH LABORATORIES AND ITS LICENSORS
+ SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING,
+ MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL
+ FITECH LABORATORIES OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT
+ OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+ DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT
+ OF THE USE OF OR INABILITY TO USE SOFTWARE, EVEN IF FITECH LABORATORIES HAS
+ BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+ This software is not designed or intended for use in on-line control of
+ aircraft, air traffic, aircraft navigation or aircraft communications; or in
+ the design, construction, operation or maintenance of any nuclear
+ facility. Licensee represents and warrants that it will not use or
+ redistribute the Software for such purposes.
+
+ author: 2000-2006 Copyright (C) Fitech Laboratories, Inc. All Rights Reserved. ver. 2.3.2 'Amiga' (build 1599).
+
+ xTier kernel localization (l10n) service XML. This service is used
+ internally by xTier kernel and system services to localized the internal
+ output. 
+ 
+ Localization data for "tx" service.
+ 
+ Users of xTier should use i18n service provided by xTier.
+ 
+ See:
+ - ISO-639 http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt
+ - ISO-3166(A2) http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
+ for possible values for language and country codes.
+
+ $Project:xtier-2.0$
+ $Workfile:xtier_l10n_tx.xml$
+ $Date:8/28/2004 5:07:46 AM$
+ $Revision:1$
+-->
+
+<!--
+    *******************************************************************************
+    *                         DO NOT MODIFY THIS FILE.                            *
+    *                         ========================                            *
+    * ANY MODIFICATION TO THIS FILE MAY PREVENT XTIER FROM STARTING, RESULT       *
+    * IN INPROPER BEHAVIOR OR CORRUPTED DATA. THIS FILE IS FOR INTERNAL USE ONLY. *
+    *******************************************************************************
+-->
+<!--
+    L10n XML file consists of properties.
+    *************************************
+    
+    .NET implementation makes the best effort to convert Java formatting rules to
+    format acceptable by .NET String.format(...) method. 
+    
+    ****************************************************************************************
+    * NOTE THAT THIS DOES NOT GUARANTY THAT JAVA AND .NET FORMATTINGS WILL PRODUCE THE     *
+    * SAME RESULT. L10N SERVICE ONLY MAKES AN EFFORT TO CONVERT THE FORMATTING TO THE BEST *
+    * MATCH FROM THE DIFFERENT PLATFORM.                                                   *
+    ****************************************************************************************
+        
+    The formatting works in the following way:
+    
+    N - index of the argument
+    other - any string
+        
+        JAVA                        Auto .NET conversion
+        ====                        ====================
+        
+        {N}                         {N}
+        
+        {N, number}                 {N:G}
+        {N, number, integer}        {N:D}
+        {N, number, percent}        {N:P}
+        {N, number, currency}       {N:C}
+        {N, number, other}          {N:other}
+        
+        {N, date}                   {N:D}
+        {N, date, short}            {N:d}
+        {N, date, medium}           {N:d}
+        {N, date, long}             {N:D}
+        {N, date, full}             {N:G}
+        {N, date, other}            {N:other}
+        
+        {N, time}                   {N:T}
+        {N, time, short}            {N,t}
+        {N, time, medium}           {N,t}
+        {N, time, long}             {N,T}
+        {N, time, full}             {N,g}
+        {N, time, other}            {N, other}
+
+    Naming conventions.
+    ===================
+    All L10n properties must be named according to the following BNF grammar:
+    name:   sub-name
+            | name '.' sub-name
+            ;
+            
+    sub-name: [A-Z0-9]
+            ;
+    
+    Notice using '.' for separating sub names. Common sub names should appear first in the name 
+    followed by more specific sub names. For example, "CORE.CACHE.MISS.ERR1" would mean cache-miss 
+    error message in core subsystem.    
+-->
+
+<!DOCTYPE l10n SYSTEM "dtd/xtier_l10n.dtd">
+
+<l10n>
+    <!--
+        'tx' service resources.
+    -->
+    <prop name="SRVC.TX.TXT1">
+        <locale country="US" lang="en">Transaction service error: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.TX.IMPL.TXT1">
+        <locale country="US" lang="en">Transaction [xid={0}, timeout-msec={1,number,#}, status={2}]</locale>
+    </prop>
+
+    <prop name="SRVC.TX.IMPL.ERR10">
+        <locale country="US" lang="en">Error while parsing TX XML configuration.</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.IMPL.ERR12">
+        <locale country="US" lang="en">Double TX XML region found: {0}</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.IMPL.ERR13">
+        <locale country="US" lang="en">Target TX region was not found: {0}</locale>
+    </prop>        
+
+    <prop name="SRVC.TX.IMPL.ERR18">
+        <locale country="US" lang="en">I/O error parsing TX XML configuration: {0}</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.IMPL.ERR21">
+        <locale country="US" lang="en">Invalid default transaction timeout value (must be >= 0): {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.IMPL.ERR22">
+        <locale country="US" lang="en">Unable to lookup native transaction manager for JNDI name: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.IMPL.ERR23">
+        <locale country="US" lang="en">Unable to create native transaction manager for Ioc descriptor: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.IMPL.ERR26">
+        <locale country="US" lang="en">Inavlid maximum transaction log file size (should be > 0): {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.IMPL.WRN2">
+        <locale country="US" lang="en">Recursive inclusion detected. File will be skipped: {0}</locale>
+    </prop>        
+
+    <prop name="SRVC.TX.IMPL.LOG1">
+        <locale country="US" lang="en">xTier XA transaction manager created: {0}</locale>
+    </prop>        
+
+    <prop name="SRVC.TX.IMPL.LOG2">
+        <locale country="US" lang="en">Native XA transaction manager in use: {0}</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.UTIL.IMPL.ERR1">
+        <locale country="US" lang="en">Unknown XA resource flag: {0}</locale>
+    </prop>        
+
+    <prop name="SRVC.TX.UTIL.IMPL.ERR2">
+        <locale country="US" lang="en">Unknown XA resource state: {0}</locale>
+    </prop>            
+    
+    <prop name="SRVC.TX.MGR.IMPL.ERR1">
+        <locale country="US" lang="en">Nested transactions are not supported.</locale>
+    </prop>
+    
+    <prop name="SRVC.TX.MGR.IMPL.ERR2">
+        <locale country="US" lang="en">Current transaction does not exist.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.MGR.IMPL.ERR4">
+        <locale country="US" lang="en">Can't resume, already associated with another transaction.</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.MGR.IMPL.ERR5">
+        <locale country="US" lang="en">No transaction.</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.ERR10">
+        <locale country="US" lang="en">Already marked for rollback: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR11">
+        <locale country="US" lang="en">Illegal status: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR12">
+        <locale country="US" lang="en">Unable to commit: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR13">
+        <locale country="US" lang="en">Cannot rollback: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR16">
+        <locale country="US" lang="en">XA resource not enlisted.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR24">
+        <locale country="US" lang="en">TX is in illigal state: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR27">
+        <locale country="US" lang="en">TX has illigal status: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR28">
+        <locale country="US" lang="en">Too late to enlist resources.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR38">
+        <locale country="US" lang="en">Illegal tx status: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR41">
+        <locale country="US" lang="en">Invalid tx timeout: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR42">
+        <locale country="US" lang="en">Invalid heuristic state [xa-res={0}, code={1}, tx={2}]</locale>
+    </prop>
+                
+    <prop name="SRVC.TX.ERR43">
+        <locale country="US" lang="en">Transaction manager failed to create a new transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR44">
+        <locale country="US" lang="en">Invalid transaction status: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR45">
+        <locale country="US" lang="en">XA error forgetting XA resource [xa-res={0}, tx={1}, error={2}]</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.ERR46">
+        <locale country="US" lang="en">XA error ending resources [tx={0}, error={1}]</locale>
+    </prop>            
+
+    <prop name="SRVC.TX.ERR47">
+        <locale country="US" lang="en">Transaction manager log error.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR48">
+        <locale country="US" lang="en">Invalid file name found while attempting to append log in transaction manager logger: {0}.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR49">
+        <locale country="US" lang="en">Cannot create destination folder for transaction manager logger: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR50">
+        <locale country="US" lang="en">Found unexpected existing log file: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR51">
+        <locale country="US" lang="en">Cannot create transaction manager logger.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR52">
+        <locale country="US" lang="en">Could not initialize transaction manager.</locale>
+    </prop>
+    
+    <prop name="SRVC.TX.ERR53">
+        <locale country="US" lang="en">Cannot find thread pool definition with name: {0}</locale>
+    </prop>    
+    
+    <prop name="SRVC.TX.ERR54">
+        <locale country="US" lang="en">Unable to initialize XID factory: MAXGTRIDSIZE is too small.</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.ERR55">
+        <locale country="US" lang="en">Unable to create recoverable XAR factory: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.ERR56">
+        <locale country="US" lang="en">Unable to create recovery handler: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.ERR57">
+        <locale country="US" lang="en">Recoverable with the same name is already defined in this region: [recoverable={0}, region={1}]</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.ERR58">
+        <locale country="US" lang="en">Invalid abandon timeout value: [abandon-timeout={0}, recoverable={1}]</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.ERR59">
+        <locale country="US" lang="en">Invalid recover attempts value: [recover-attempts={0}, recoverable={1}]</locale>
+    </prop>    
+
+    <prop name="SRVC.TX.ERR60">
+        <locale country="US" lang="en">Found unexpected existing recovery log file: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR61">
+        <locale country="US" lang="en">Transaction manager recovery log error.</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR63">
+        <locale country="US" lang="en">Unable to recover - all recovery attempts were unsuccessful: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR65">
+        <locale country="US" lang="en">Cannot delete tx recovery log file: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.ERR66">
+        <locale country="US" lang="en">"I/O error while cleaning transaction log.</locale>
+    </prop>
+    
+    <prop name="SRVC.TX.ERR67">
+        <locale country="US" lang="en">"Naming exception while binding transaction manager to JNDI.</locale>
+    </prop>
+    
+    <prop name="SRVC.TX.ERR68">
+        <locale country="US" lang="en">"Unable to recover due to incorrect transaction state found in recovery log file: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.WRN1">
+        <locale country="US" lang="en">XA exception [error-code={0}, tx={1}, error={2}]</locale>
+    </prop>
+
+    <prop name="SRVC.TX.WRN2">
+        <locale country="US" lang="en">XA error enlisting XA resource [xa-res={0}, tx={1}, error={2}]</locale>
+    </prop>    
+    
+    <prop name="SRVC.TX.WRN3">
+        <locale country="US" lang="en">XA error committing XA resource [one-phase={0}, xa-res={1}, error-code={2}, tx={3}, error={4}]</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.WRN8">
+        <locale country="US" lang="en">XA error preparing XA resources [error-code={0}, tx={1}, error={2}]</locale>
+    </prop>            
+
+    <prop name="SRVC.TX.WRN10">
+        <locale country="US" lang="en">XA error rolling back XA resource [xa-res={0}, error-code={1}, tx={2}, error={3}]</locale>
+    </prop>                
+
+    <prop name="SRVC.TX.WRN11">
+        <locale country="US" lang="en">XA error recover a transaction: [recoverable={0}, attempt={1}, left={2}]</locale>
+    </prop>
+
+    <prop name="SRVC.TX.WRN12">
+        <locale country="US" lang="en">Unable to recover - all recovery attempts were unsuccessful: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.WRN13">
+        <locale country="US" lang="en">No recovery attempts are configured, transaction recovering skipped: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.TX.WRN14">
+        <locale country="US" lang="en">Failed to set timeout [xa-res={0}, tx={1}]</locale>
+    </prop>        
+    
+    <prop name="SRVC.TX.LOG.TXT1">
+        <locale country="US" lang="en">File log sink [folder={0}, file={1}, max-size={2,number,#}].</locale>
+    </prop>
+
+    <prop name="SRVC.TX.IMPL.INFO1">
+        <locale country="US" lang="en">Recovery finished for: {0}</locale>
+    </prop>
+</l10n>

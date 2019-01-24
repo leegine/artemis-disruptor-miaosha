@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Copyright 2000-2003 Fitech Laboratories, Inc. All Rights Reserved.
+
+ This software is provided "AS IS," without a warranty of any kind. ALL
+ EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY
+ IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+ NON-INFRINGEMENT, ARE HEREBY EXCLUDED. FITECH LABORATORIES AND ITS LICENSORS
+ SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING,
+ MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL
+ FITECH LABORATORIES OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT
+ OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+ DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT
+ OF THE USE OF OR INABILITY TO USE SOFTWARE, EVEN IF FITECH LABORATORIES HAS
+ BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+ This software is not designed or intended for use in on-line control of
+ aircraft, air traffic, aircraft navigation or aircraft communications; or in
+ the design, construction, operation or maintenance of any nuclear
+ facility. Licensee represents and warrants that it will not use or
+ redistribute the Software for such purposes.
+
+ author: 2000-2006 Copyright (C) Fitech Laboratories, Inc. All Rights Reserved. ver. 2.3.2 'Amiga' (build 1599).
+
+ xTier kernel localization (l10n) service XML. This service is used
+ internally by xTier kernel and system services to localized the internal
+ output. 
+ 
+ Localization data for "cache" service.
+ 
+ Users of xTier should use i18n service provided by xTier.
+ 
+ See:
+ - ISO-639 http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt
+ - ISO-3166(A2) http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
+ for possible values for language and country codes.
+
+ $Project:xtier-2.0$
+ $Workfile:xtier_l10n_cache.xml$
+ $Date:11/12/2004 2:26:49 AM$
+ $Revision:2$
+-->
+
+<!--
+    *******************************************************************************
+    *                         DO NOT MODIFY THIS FILE.                            *
+    *                         ========================                            *
+    * ANY MODIFICATION TO THIS FILE MAY PREVENT XTIER FROM STARTING, RESULT       *
+    * IN INPROPER BEHAVIOR OR CORRUPTED DATA. THIS FILE IS FOR INTERNAL USE ONLY. *
+    *******************************************************************************
+-->
+<!--
+    L10n XML file consists of properties.
+    *************************************
+    
+    .NET implementation makes the best effort to convert Java formatting rules to
+    format acceptable by .NET String.format(...) method. 
+    
+    ****************************************************************************************
+    * NOTE THAT THIS DOES NOT GUARANTY THAT JAVA AND .NET FORMATTINGS WILL PRODUCE THE     *
+    * SAME RESULT. L10N SERVICE ONLY MAKES AN EFFORT TO CONVERT THE FORMATTING TO THE BEST *
+    * MATCH FROM THE DIFFERENT PLATFORM.                                                   *
+    ****************************************************************************************
+        
+    The formatting works in the following way:
+    
+    N - index of the argument
+    other - any string
+        
+        JAVA                        Auto .NET conversion
+        ====                        ====================
+        
+        {N}                         {N}
+        
+        {N, number}                 {N:G}
+        {N, number, integer}        {N:D}
+        {N, number, percent}        {N:P}
+        {N, number, currency}       {N:C}
+        {N, number, other}          {N:other}
+        
+        {N, date}                   {N:D}
+        {N, date, short}            {N:d}
+        {N, date, medium}           {N:d}
+        {N, date, long}             {N:D}
+        {N, date, full}             {N:G}
+        {N, date, other}            {N:other}
+        
+        {N, time}                   {N:T}
+        {N, time, short}            {N,t}
+        {N, time, medium}           {N,t}
+        {N, time, long}             {N,T}
+        {N, time, full}             {N,g}
+        {N, time, other}            {N, other}
+
+    Naming conventions.
+    ===================
+    All L10n properties must be named according to the following BNF grammar:
+    name:   sub-name
+            | name '.' sub-name
+            ;
+            
+    sub-name: [A-Z0-9]
+            ;
+    
+    Notice using '.' for separating sub names. Common sub names should appear first in the name 
+    followed by more specific sub names. For example, "CORE.CACHE.MISS.ERR1" would mean cache-miss 
+    error message in core subsystem.    
+-->
+
+<!DOCTYPE l10n SYSTEM "dtd/xtier_l10n.dtd">
+
+<l10n>
+    <!--
+        'cache' service resources.
+    -->        
+    <prop name="SRVC.CACHE.TXT1">
+        <locale country="US" lang="en">Cache service error: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.CACHE.TXT2">
+        <locale country="US" lang="en">Cache transaction optimistic lock failure error: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT3">
+        <locale country="US" lang="en">Cache transaction reply failure error: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.CACHE.TXT4">
+        <locale country="US" lang="en">Cache transaction needs to be rolled back: {0}</locale>
+    </prop>    
+
+    <prop name="SRVC.CACHE.TXT5">
+        <locale country="US" lang="en">Cache transaction timeout error: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT6">
+        <locale country="US" lang="en">JCache error: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT7">
+        <locale country="US" lang="en">Cache [name={0}, statistics={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT8">
+        <locale country="US" lang="en">JCache [name={0}, statistics={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT9">
+        <locale country="US" lang="en">Cache age expiration policy [cache={0}, init-size={1,number,#}, age={2,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT10">
+        <locale country="US" lang="en">Cache idle expiration policy [cache={0}, init-size={1,number,#}, idle-time={2,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT11">
+        <locale country="US" lang="en">Cache LRU expiration policy [cache={0}, init-size={1,number,#}, max-size={2,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT12">
+        <locale country="US" lang="en">Cache LFU expiration policy [cache={0}, init-size={1,number,#}, max-size={2,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT13">
+        <locale country="US" lang="en">Cache application-driven transaction [xid={0,number,#}, state={1}, isolation-level={2}, is-remote={3}, reads={4,number,#}, writes={5,number,#}, groups={6,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT14">
+        <locale country="US" lang="en">Cache basic topology.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT15">
+        <locale country="US" lang="en">Cache key attributes [type-id={0,number,#}, group-id={1,number,#}, is-depended={2}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT16">
+        <locale country="US" lang="en">Cache basic key attributes resolver.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT17">
+        <locale country="US" lang="en">Cache entry [key={0}, key-attributes={1}, value={2}, statistics={3}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.TXT18">
+        <locale country="US" lang="en">Cache statistics [hits={0,number,#}, misses={1,number,#}, reads={2,number,#}, writes={3,number,#}, hit-rate={4}, miss-rate={5}, read-rate={6}, write-rate={7}, create-time={8,date,short} {8,time,short}, last-access-time={9,date,short} {9,time,short}]</locale>
+    </prop>
+    
+    <prop name="SRVC.CACHE.TXT19">
+        <locale country="US" lang="en">Cache transaction deadlock error: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR1">
+        <locale country="US" lang="en">JCache exception.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR2">
+        <locale country="US" lang="en">Cache transaction optimistic lock failure [xid={0,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR3">
+        <locale country="US" lang="en">Cache transaction marked for rollback [xid={0}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR4">
+        <locale country="US" lang="en">Cache initial region not found [region={0}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR5">
+        <locale country="US" lang="en">Only CacheLoader or CacheStore (but not both) can be defined.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR6">
+        <locale country="US" lang="en">Error creating cache IoC object.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR7">
+        <locale country="US" lang="en">Found duplicate region: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR8">
+        <locale country="US" lang="en">Cache XML configuration value must be positive [{0}={1,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR9">
+        <locale country="US" lang="en">Cache channel ''max'' value must be greater or equal to ''min'' value [min={0,number,#}, max={1,number,#}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR10">
+        <locale country="US" lang="en">Cache channel ''attempts'' value must be greater or equal to 1.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR11">
+        <locale country="US" lang="en">Only one '{0}' can be specified.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR12">
+        <locale country="US" lang="en">Cache channel ''min'' adn ''max'' values cannot overlap or have gaps.</locale>
+    </prop>
+        
+    <prop name="SRVC.CACHE.ERR13">
+        <locale country="US" lang="en">Could not create datagram channel pool.</locale>
+    </prop>
+        
+    <prop name="SRVC.CACHE.ERR14">
+        <locale country="US" lang="en">I/O error trying to send datagram.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR15">
+        <locale country="US" lang="en">Cache channel is not defined for number of objects: {0,number,#}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR16">
+        <locale country="US" lang="en">Some nodes failed to reply: [failed-nodes={0}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR17">
+        <locale country="US" lang="en">Error sending phase-two request.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR18">
+        <locale country="US" lang="en">Error executing DGC check.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR19">
+        <locale country="US" lang="en">Error sending phase-one reply.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR20">
+        <locale country="US" lang="en">Error sending DGC reply.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR21">
+        <locale country="US" lang="en">Cannot perform ''Cache.put(...)'' without open transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR22">
+        <locale country="US" lang="en">Cannot perform ''Cache.putAll(...)'' without open transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR23">
+        <locale country="US" lang="en">Cannot perform ''Cache.remove(...)'' without open transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR24">
+        <locale country="US" lang="en">Cannot perform ''Cache.removeAll(...)'' without open transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR25">
+        <locale country="US" lang="en">Cannot perform ''Cache.invalidate(...)'' without open transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR26">
+        <locale country="US" lang="en">Error trying to load entry(s) from spooler. Spooler will be disabled.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR27">
+        <locale country="US" lang="en">Error trying to remove entry from spooler. Spooler will be disabled.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR28">
+        <locale country="US" lang="en">Error trying to spool entry. Spooler will be disabled.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR29">
+        <locale country="US" lang="en">CacheKeyAttrsResolver must never return null.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR30">
+        <locale country="US" lang="en">Operation not supported: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR31">
+        <locale country="US" lang="en">Cache is stopped: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR32">
+        <locale country="US" lang="en">Cache NIO error.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR33">
+        <locale country="US" lang="en">Cannot set ''timeout'' value into non-empty transation.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR34">
+        <locale country="US" lang="en">Cache transaction accessed from non-starting thread: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR35">
+        <locale country="US" lang="en">Cache transaction is finished already: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR36">
+        <locale country="US" lang="en">Cache transaction is prepared already: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR37">
+        <locale country="US" lang="en">Cache transaction timed out: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR38">
+        <locale country="US" lang="en">Cache transaction marked for rollback: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR39">
+        <locale country="US" lang="en">Cache transaction must be ''prepared'' before commit: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR40">
+        <locale country="US" lang="en">Error creating object pool: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR41">
+        <locale country="US" lang="en">Error deleting object pool: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR42">
+        <locale country="US" lang="en">Error releasing object to the pool.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR43">
+        <locale country="US" lang="en">Error aquiring object from the pool.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR44">
+        <locale country="US" lang="en">Error parsing cache XML configuration.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR45">
+        <locale country="US" lang="en">Current thread alreay has ongoing cache transaction.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR46">
+        <locale country="US" lang="en">Remote transaction marked for rollback: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR47">
+        <locale country="US" lang="en">Cache error in remote transaction: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR48">
+        <locale country="US" lang="en">Error when coordinating cache service stop.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR49">
+        <locale country="US" lang="en">Error stopping cache: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR50">
+        <locale country="US" lang="en">Error when stopping cache service.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR51">
+        <locale country="US" lang="en">Failed to connect to remote node, will retry every ''timeout'' iterval [timeout={0,number,#}, node={1}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR53">
+        <locale country="US" lang="en">Remote node failed to successfully acknowledge start/stop: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR54">
+        <locale country="US" lang="en">Received cache start/stop coordinating event for unknown node: {0,number,#}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR55">
+        <locale country="US" lang="en">I/O error when processing cache start/stop notification.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR56">
+        <locale country="US" lang="en">I/O error when contacting node during cache stop [node={0}]</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR57">
+        <locale country="US" lang="en">Error attempting to complete remote transaction: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR58">
+        <locale country="US" lang="en">Cache transaction is in heuristic state: {0}</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR59">
+        <locale country="US" lang="en">Thread pool specified in cache XML configuration does not exist: {0}. Check ''objpool'' service XML configuration.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR60">
+        <locale country="US" lang="en">Error sending deadlock detection request.</locale>
+    </prop>
+
+    <prop name="SRVC.CACHE.ERR61">
+        <locale country="US" lang="en">Cache transaction deadlocked: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.CACHE.ERR62">
+        <locale country="US" lang="en">I/O error while parsing cache service XML file: {0}</locale>
+    </prop>
+    
+    <prop name="SRVC.CACHE.WRN1">
+        <locale country="US" lang="en">Found circular configuration include path: {0}</locale>
+    </prop>    
+</l10n>
